@@ -29,8 +29,14 @@ public class ControladorProducto extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		TblProductocl2 producto = new TblProductocl2();
+		ClassProductoImp crud = new ClassProductoImp();
+		List<TblProductocl2> listadocliente = crud.ListadoProducto();
+		
+		List<TblProductocl2> listadoproducto = crud.ListadoProducto();
+		request.setAttribute("listadoproductos", listadoproducto);
+		
+		request.getRequestDispatcher("/FormRegistrarProducto.jsp").forward(request, response);
 	}
 
 	/**
@@ -38,6 +44,27 @@ public class ControladorProducto extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-}
+		String nombre = request.getParameter("nombre");
+		double precio = Double.parseDouble(request.getParameter("precio"));
+		double precioVen = Double.parseDouble(request.getParameter("precioVen"));
+		String estado = request.getParameter("estado");
+		String descrip = request.getParameter("descrip");
+		
+		TblProductocl2 producto = new TblProductocl2();
+		ClassProductoImp crud = new ClassProductoImp();
+		
+		producto.setNombrecl2(nombre);
+		producto.setPreciocompcl2(precio);
+		producto.setPrecioventacl2(precioVen);
+		producto.setEstadocl2(estado);
+		producto.setDescripcl2(descrip);
+		
+		crud.RegistrarProducto(producto);
+		
+		List<TblProductocl2> listadoproducto = crud.ListadoProducto();
+		request.setAttribute("listadoproductos", listadoproducto);
+		
+		request.getRequestDispatcher("/FormListarProducto.jsp").forward(request, response);
+	}
 
 }

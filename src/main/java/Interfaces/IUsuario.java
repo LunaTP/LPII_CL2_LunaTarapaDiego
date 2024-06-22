@@ -1,5 +1,7 @@
 package Interfaces;
 
-public interface IUsuario {
+import model.TblUsuariocl2;
 
+public interface IUsuario {
+	public TblUsuariocl2 autenticarUsuario(String nombreUsuario, String contrasena);
 }
