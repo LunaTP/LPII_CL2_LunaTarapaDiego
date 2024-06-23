@@ -8,19 +8,26 @@
 </head>
 <body bgcolor="#c5dec9">
 	<h1 align="center">Ingresar al Sistema</h1>
-	<table border="2" align="center">
-		<tr>
-			<td>usuario</td>
-			<td><input type="text" name="usuario" required></td>
-		</tr>
-		<tr>
-			<td>password</td>
-			<td><input type="text" name="password" required></td>
-		</tr>
-		<tr>
-			<td colspan="2"><input type="submit" value="Registrar"></td>
-		</tr>
-	</table>
-
+	<form action="ControladorUsuario" method="post">
+		<table border="2" align="center">
+			<tr>
+				<td>usuario</td>
+				<td><input type="text" name="nombreUsuario" required></td>
+			</tr>
+			<tr>
+				<td>password</td>
+				<td><input type="password" name="contrasena" required></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Registrar"></td>
+			</tr>
+		</table>
+	</form>
+	    <%
+        String error = request.getParameter("error");
+        if (error != null && error.equals("1")) {
+            out.println("<p style='color:red; text-align:center;'>Usuario o contraseña incorrectos.</p>");
+        }
+    	%>
 </body>
 </html>

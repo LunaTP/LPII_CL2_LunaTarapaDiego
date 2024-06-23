@@ -6,8 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Menu Principal</title>
 </head>
-<body bgcolor="#c5dec9" align="center">
-<h2 >MENU-PRINCIPAL</h2>
-<a href="FormRegistrarProducto.jsp">Registrar Producto</a>
+<body bgcolor="#c5dec9">
+<h2 align="center">MENU-PRINCIPAL</h2>
+<div align="center" ><a href="FormRegistrarProducto.jsp" >Registrar Producto</a></div>
 </body>
 </html>

@@ -38,7 +38,39 @@
 			</td>
 		</tr>
 	</table>
-
+	<% String mensaje = (String) request.getAttribute("mensaje"); %>
+    <% if (mensaje != null && !mensaje.isEmpty()) { %>
+        <p align="center"><%= mensaje %></p>
+        	<h2 align="center">Listado de Productos</h2>
+	<table border="2"  align="center">
+		<tr>
+			<td>Codigo</td>
+			<td>Nom</td>
+			<td>pv</td>
+			<td>pc</td>
+			<td>Est.</td>
+			<td>Des.</td>
+		</tr>
+		<%
+			List<TblProductocl2> listadoProducto = (List<TblProductocl2>)request.getAttribute("listadoproductos");
+			if(listadoProducto != null){
+				for(TblProductocl2 pro : listadoProducto){
+				%>
+					<tr>
+						<td><%=pro.getIdproductocl2() %></td>
+						<td><%=pro.getNombrecl2()%></td>
+						<td><%=pro.getPrecioventacl2() %></td>
+						<td><%=pro.getPreciocompcl2()%></td>
+						<td><%=pro.getEstadocl2() %></td>
+						<td><%=pro.getDescripcl2() %></td>
+					</tr>
+				<% 	
+				}
+			}
+		%>
+		
+	</table>
+    <% } %>
 </form>
 </body>
 </html>

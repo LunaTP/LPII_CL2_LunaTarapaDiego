@@ -61,10 +61,12 @@ public class ControladorProducto extends HttpServlet {
 		
 		crud.RegistrarProducto(producto);
 		
+		request.setAttribute("mensaje", "Dato Registrado en la BD");
+		
 		List<TblProductocl2> listadoproducto = crud.ListadoProducto();
 		request.setAttribute("listadoproductos", listadoproducto);
 		
-		request.getRequestDispatcher("/FormListarProducto.jsp").forward(request, response);
+		doGet(request, response);
 	}
 
 }

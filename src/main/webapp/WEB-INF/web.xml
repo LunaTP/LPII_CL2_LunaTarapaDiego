@@ -16,6 +16,12 @@
   	<description></description>
   	<servlet-class>Controlador.ControladorUsuario</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>aa</servlet-name>
+  	<display-name>aa</display-name>
+  	<description></description>
+  	<servlet-class>Controlador.aa</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ControladorProducto</servlet-name>
   	<url-pattern>/ControladorProducto</url-pattern>
@@ -23,5 +29,9 @@
   <servlet-mapping>
   	<servlet-name>ControladorUsuario</servlet-name>
   	<url-pattern>/ControladorUsuario</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>aa</servlet-name>
+  	<url-pattern>/aa</url-pattern>
   </servlet-mapping>
 </web-app>
